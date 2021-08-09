@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Events",
+  "steps": [
+    {
+      "file": "components/events/event-item.js",
+      "description": "EventItem gets fed into EventList\n",
+      "line": 46,
+      "selection": {
+        "start": {
+          "line": 7,
+          "character": 1
+        },
+        "end": {
+          "line": 46,
+          "character": 26
+        }
+      }
+    },
+    {
+      "file": "components/events/event-list.js",
+      "description": "Here we see EventItem fed into EventList and we retrieve the items prop from a destructuring on line 5!",
+      "line": 17,
+      "selection": {
+        "start": {
+          "line": 10,
+          "character": 1
+        },
+        "end": {
+          "line": 17,
+          "character": 11
+        }
+      }
+    }
+  ],
+  "ref": "main"
+}
