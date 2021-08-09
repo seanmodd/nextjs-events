@@ -4,7 +4,7 @@ import PageContainer from 'components/PageContainer';
 import Actions from 'components/Actions';
 import styled from 'styled-components';
 import { MyButton, MyDarkModeSwitch } from 'styles/theme';
-import { Box, Button, VStack } from '@chakra-ui/react';
+import { Box, Button, HStack, VStack } from '@chakra-ui/react';
 
 const VisitEvents = () => (
   <Link href="/myindex">
@@ -13,12 +13,21 @@ const VisitEvents = () => (
     </a>
   </Link>
 );
+const AllEvents = () => (
+  <Link href="/events">
+    <a>
+      <MyButton>See ALL Events!</MyButton>
+    </a>
+  </Link>
+);
 
 export default function Home() {
   return (
     <>
       <PageContainer title="Next.js Chakra Starter">
-        <VisitEvents />
+        <HStack py={15}>
+          <VisitEvents /> <AllEvents />
+        </HStack>
         <Actions switchName="Second Page" />
       </PageContainer>
     </>
