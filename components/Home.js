@@ -11,14 +11,14 @@ const Home = () => {
         <VStack
           zIndex="docked"
           pos="fixed"
-          top="10"
-          right="10"
-          py={3}
-          px={4}
+          top="2"
+          left={['1%', '1%', '1%', '5%', '15%']}
+          py={4}
+          px={3}
           bg={colorMode === 'light' ? 'gray.100' : 'gray.800'}
           opacity={0.75}
           borderColor={colorMode === 'light' ? 'gray.800' : 'gray.100'}
-          borderRadius="3xl"
+          borderRadius="xl"
           cursor="pointer"
         >
           <Box onClick={() => otherrouter.push('/')}>Home</Box>

@@ -24,7 +24,8 @@ function MyApp({ Component, pageProps, router }) {
       <DefaultSeo {...SEO} />
 
       <GlobalStyle>
-        <Star />
+        {/* <Star /> */}
+        <Home />
         <AnimatePresence exitBeforeEnter>
           <MotionBox
             key={router.route}
@@ -39,8 +40,6 @@ function MyApp({ Component, pageProps, router }) {
               exit: { opacity: 0, y: 10 },
             }}
           >
-            <Home />
-
             <Component {...pageProps} />
           </MotionBox>
         </AnimatePresence>
