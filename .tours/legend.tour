@@ -1,0 +1,27 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Legend",
+  "steps": [
+    {
+      "file": "pages/_app.js",
+      "description": "The loading indicator is here",
+      "line": 33,
+      "selection": {
+        "start": {
+          "line": 33,
+          "character": 8
+        },
+        "end": {
+          "line": 45,
+          "character": 12
+        }
+      }
+    },
+    {
+      "file": "pages/_app.js",
+      "description": "This is where the Home Navigation on the top is located\n\n- [run it](command:codetour.startTourByTitle?[\"Legend\"])\n- [run terminal command](command:codetour.sendTextToTerminal?[\"npm run dev\"])\n>> npm run dev",
+      "line": 46
+    }
+  ],
+  "ref": "main"
+}
