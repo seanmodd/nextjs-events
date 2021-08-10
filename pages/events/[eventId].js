@@ -1,17 +1,17 @@
 import { Fragment } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
-import { getEventById } from '../../dummy-data';
+import { getEventById, getFeaturedEvents } from '../../helpers/api-util';
 import EventSummary from '../../components/event-detail/event-summary';
 import EventLogistics from '../../components/event-detail/event-logistics';
 import EventContent from '../../components/event-detail/event-content';
 import ErrorAlert from '../../components/ui/error-alert';
 
-function EventDetailPage() {
-  const router = useRouter();
-  const eventId = router.query.eventId;
-  const event = getEventById(eventId);
-
+function EventDetailPage(props) {
+  // const router = useRouter();
+  // const { eventId } = router.query;
+  // const event = getEventById(eventId);
+  const event = props.selectedEvent;
   if (!event) {
     return (
       <ErrorAlert>
@@ -21,7 +21,7 @@ function EventDetailPage() {
   }
 
   return (
-    <Fragment>
+    <>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
@@ -32,8 +32,44 @@ function EventDetailPage() {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
-    </Fragment>
+    </>
   );
 }
 
+export const getStaticProps = async (ctx) => {
+  const { eventId } = ctx.params;
+
+  const event = await getEventById(eventId);
+  return {
+    props: {
+      selectedEvent: event,
+    },
+    revalidate: 30,
+  };
+};
+
+// export const getStaticPaths = async () => ({
+//   const events = await getAllEvents(),
+//   const paths = events.map(event => ({ params: { eventId: event.id } })),
+//   return {
+
+//   paths: [
+//     {
+//       // params: { eventId: 'e1' },
+//       params: paths,
+//     },
+//   ],
+//   fallback: false,
+//   },
+// });
+// ;
+// export default EventDetailPage;
+export async function getStaticPaths() {
+  const events = await getFeaturedEvents();
+  const paths = events.map((event) => ({ params: { eventId: event.id } }));
+  return {
+    paths,
+    fallback: true,
+  };
+}
 export default EventDetailPage;
