@@ -21,7 +21,7 @@
     "**/.markdownlint.json": true,
     "*.json": true,
     ".markdownlint.json": true,
-    "**/*.json": true,
+    "**/*.json": false,
     "package-lock.json": true,
     "**/.prettierignore": true,
     ".prettierignore": true,

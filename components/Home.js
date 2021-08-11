@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { Button, HStack, VStack, Box, useColorMode } from '@chakra-ui/react';
-import { MyDarkModeSwitch } from 'styles/theme';
+import { MyDarkModeSwitch, Toggle } from 'styles/darkmode';
 
 const Home = () => {
   const otherrouter = useRouter();

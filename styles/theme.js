@@ -8,33 +8,51 @@ import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { Button } from '@chakra-ui/button';
 import '@fontsource/raleway';
 import '@fontsource/poppins';
+import { jsx, css } from '@emotion/react';
 import { useColorModeValue as mode } from '@chakra-ui/color-mode';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import styled from 'styled-components';
+// {const { colorMode, toggleColorMode } = useColorMode();
+// const bgColor = {
+//   light: 'blue.500',
+//   dark: 'red.500',
+// };
+// const myColor = bgColor[colorMode];
+// }
 
-export const MyDarkModeSwitch = ({ children }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const iconColor = {
-    light: 'black',
-    dark: 'white',
-  };
-  const bgColor = {
-    light: 'gray.300',
-    dark: 'black',
-  };
-  return (
-    <>
-      <IconButton
-        aria-label="Toggle Dark Switch"
-        icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-        onClick={toggleColorMode}
-        color={iconColor[colorMode]}
-        bg={bgColor[colorMode]}
-      >
-        {children}
-      </IconButton>
-    </>
-  );
-};
+const BadgeButton = styled.button`
+  background-color: ${(props) => props.bg};
+  color: ${(props) => props.color};
+  padding: 10px;
+
+  margin-bottom: 100px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  border: 1px solid white;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.bg};
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    color: green;
+  }
+`;
+
+const LoadButton = styled(BadgeButton)`
+  font-size: 12px;
+  font-weight: light;
+  letter-spacing: 6px;
+`;
+
+export { BadgeButton, LoadButton };
 
 const lightHoverStyle = {
   boxShadow: '7px 7px 7px 7px  rgba(223, 3, 172, 0.2)',
@@ -108,27 +126,27 @@ const theme = extendTheme({
   },
   MyButton,
   breakpoints,
-  components: {
-    Button: {
-      // 1. We can update the base styles
-      baseStyle: {
-        fontWeight: '600',
-        // textTransform: 'uppercase',
-        // textColor: '#0e11e6',
-        borderWidth: '1px',
-        borderRadius: 'base',
-        boxShadow: 'base',
-        // borderColor: 'black',
-        transition: 'all 50000ms ease-in-out(0.23, 1, 0.32, 1) 2ms',
-        // hover: 'blue.500',
-      },
+  // components: {
+  //   Button: {
+  //     // 1. We can update the base styles
+  //     baseStyle: {
+  //       fontWeight: '600',
+  //       // textTransform: 'uppercase',
+  //       // textColor: '#0e11e6',
+  //       borderWidth: '1px',
+  //       borderRadius: 'base',
+  //       boxShadow: 'base',
+  //       // borderColor: 'black',
+  //       transition: 'all 50000ms ease-in-out(0.23, 1, 0.32, 1) 2ms',
+  //       // hover: 'blue.500',
+  //     },
 
-      defaultProps: {
-        // colorScheme: 'tomato',
-        variant: 'ghost',
-      },
-    },
-  },
+  //     defaultProps: {
+  //       // colorScheme: 'tomato',
+  //       variant: 'ghost',
+  //     },
+  //   },
+  // },
   // colors: {
   //   black: '#2e2e2e',
   //   white: '#f1f1f1',
